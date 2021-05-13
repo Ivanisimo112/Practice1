@@ -58,52 +58,38 @@ public class StudentsGrades {
         return counter;
     }
 
-    //6
-    public int numbExcellent() {
+    //метод який підраховує числа в даному інтервалі
+    private int quantityInAGivenInterval(int a, int b) {
         int counter = 0;
         for (int i = 0; i < studentAssessments.length; i++) {
-            if (studentAssessments[i] >= 91 && studentAssessments[i] <= 100) {
+            if (studentAssessments[i] >= a && studentAssessments[i] <= b) {
                 counter++;
             }
         }
         return counter;
+    }
+
+    //6
+    public int numbExcellent() {
+        return quantityInAGivenInterval(91, 100);
     }
 
     //7
     public int numbGood() {
-        int counter = 0;
-        for (int i = 0; i < studentAssessments.length; i++) {
-            if (studentAssessments[i] >= 71 && studentAssessments[i] <= 90) {
-                counter++;
-            }
-        }
-        return counter;
+        return quantityInAGivenInterval(71, 90);
     }
 
     //8
     public int numbSatisfactory() {
-        int counter = 0;
-        for (int i = 0; i < studentAssessments.length; i++) {
-            if (studentAssessments[i] >= 60 && studentAssessments[i] <= 70) {
-                counter++;
-            }
-        }
-        return counter;
+        return quantityInAGivenInterval(60, 70);
     }
 
     //9
     public int numbUnsatisfactory() {
-        int counter = 0;
-        for (int i = 0; i < studentAssessments.length; i++) {
-            if (studentAssessments[i] < 60) {
-                counter++;
-            }
-        }
-        return counter;
+        return quantityInAGivenInterval(0, 59);
     }
 
     //10
-
     @Override
     public String toString() {
         return "Оцінки студентів : " + Arrays.toString(studentAssessments);
