@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class StudentsGradesTester {
     public static void main(String[] args) {
         StudentsGrades studentsGrades = new StudentsGrades();
@@ -29,5 +31,9 @@ public class StudentsGradesTester {
         System.out.println("кількість студентів з оцінкою \"задовільно\": "+ studentsGrades.numbSatisfactory());
         //9
         System.out.println("кількість студентів з оцінкою \"не задовільно\": "+ studentsGrades.numbUnsatisfactory());
+        studentsGrades.sortToMore();
+        System.out.println(studentsGrades.toString());
+        studentsGrades.sortToLess();
+        System.out.println(studentsGrades.toString());
     }
 }
