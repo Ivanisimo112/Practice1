@@ -31,9 +31,9 @@ public class StudentsGradesTester {
         System.out.println("кількість студентів з оцінкою \"задовільно\": "+ studentsGrades.numbSatisfactory());
         //9
         System.out.println("кількість студентів з оцінкою \"не задовільно\": "+ studentsGrades.numbUnsatisfactory());
-        studentsGrades.sortToMore();
+        studentsGrades.setStudentAssessments(studentsGrades.sortToMore(studentsGrades.getStudentAssessments()));
         System.out.println(studentsGrades.toString());
-        studentsGrades.sortToLess();
+        studentsGrades.setStudentAssessments(studentsGrades.sortToLess(studentsGrades.getStudentAssessments()));
         System.out.println(studentsGrades.toString());
 
     }

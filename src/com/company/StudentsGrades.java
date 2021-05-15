@@ -96,22 +96,35 @@ public class StudentsGrades {
     }
 
     //метод сортування злиттям до більшого
-    public void sortToMore() {
-        int[] ints = merger(new int[]{studentAssessments[0]}, new int[]{studentAssessments[1]});
-        for (int i = 2; i < studentAssessments.length; i++) {
-            ints = merger(ints, new int[]{studentAssessments[i]});
+    public int[] sortToMore(int[] ints) {
+        if (ints.length < 2) {
+            return ints;
         }
-        setStudentAssessments(ints);
+
+        int[] ints1 = new int[ints.length / 2];
+        for (int i = 0; i < ints1.length; i++) {
+            ints1[i] = ints[i];
+        }
+        int[] ints2 = new int[ints.length-ints.length/2];
+        int a = 0;
+        for (int i = ints.length / 2; i < ints.length; i++) {
+            ints2[a] = ints[i];
+            a++;
+        }
+        ints1 = sortToMore(ints1);
+        ints2 = sortToMore(ints2);
+
+        return merger(ints1, ints2);
     }
 
     //метод сортування злиттям до меньшого
-    public void sortToLess() {
-        sortToMore();
+    public int[] sortToLess(int[] ints1) {
+        sortToMore(ints1);
         int[] ints = new int[studentAssessments.length];
         for (int i = 0; i < ints.length; i++) {
-            ints[i] = studentAssessments[studentAssessments.length-1-i];
+            ints[i] = studentAssessments[studentAssessments.length - 1 - i];
         }
-        setStudentAssessments(ints);
+        return ints;
     }
 
     //
@@ -128,7 +141,7 @@ public class StudentsGrades {
                 i1++;
             } else if (i1 == ints1.length) {
                 ints[i] = ints2[i2];
-                i1++;
+                i2++;
             } else {
                 ints[i] = ints2[i2];
                 i2++;
